@@ -1,0 +1,23 @@
+{
+    "name": "wazisera/flow-utility-simplegearman",
+    "description": "",
+    "type": "neos-package",
+    "keywords": ["gearman", "gearmand", "flow", "neos"],
+    "homepage": "https://github.com/wazisera/flow-utility-simplegearman",
+    "license": "MIT",
+    "version": "1.0.0",
+    "require": {
+        "neos/flow": "~4.0",
+        "ext-gearman": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wazisera\\Utility\\SimpleGearman\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Wazisera.Utility.SimpleGearman"
+        }
+    }
+}
