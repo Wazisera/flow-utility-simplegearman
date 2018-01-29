@@ -19,11 +19,13 @@ use Wazisera\Utility\SimpleGearman\Exception;
 class GearmanWorkerService {
 
     /**
+     * @Flow\InjectConfiguration(path="serverIP")
      * @var string
      */
-    protected $serverHost = '127.0.0.1';
+    protected $serverIP = '127.0.0.1';
 
     /**
+     * @Flow\InjectConfiguration(path="serverPort")
      * @var int
      */
     protected $serverPort = 4730;
@@ -51,13 +53,13 @@ class GearmanWorkerService {
     public function getWorker() {
         if($this->worker === null) {
             $this->worker = new \GearmanWorker();
-            $this->worker->addServer($this->serverHost, $this->serverPort);
+            $this->worker->addServer($this->serverIP, $this->serverPort);
         }
         return $this->worker;
     }
 
     /**
-     *
+     * @return array
      */
     public function getAllFunctions() {
         $result = array();
@@ -87,7 +89,7 @@ class GearmanWorkerService {
     }
 
     /**
-     *
+     * Starts the gearman worker
      */
     public function startWorker() {
         $worker = $this->getWorker();

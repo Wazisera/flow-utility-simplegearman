@@ -26,7 +26,7 @@ class GearmanCommandController extends CommandController {
      * Starts the Gearman worker with all available functions and keep it running.
      */
     public function startCommand() {
-        $this->outputLine('Starting gearman worker...');
+        $this->outputLine('Start gearman worker');
         $this->gearmanWorkerService->startWorker();
     }
 
