@@ -56,10 +56,17 @@ class GearmanClientService {
     /**
      * @param string $functionName
      * @param string $workload
-     * @return \GearmanTask
+     * @return \GearmanTask|bool
      */
-    public function run($functionName, $workload) {
+    public function addBackgroundTask($functionName, $workload) {
         return $this->getClient()->addTaskBackground($functionName, $workload);
+    }
+
+    /**
+     * @return bool
+     */
+    public function run() {
+        return $this->getClient()->runTasks();
     }
 
     /**
